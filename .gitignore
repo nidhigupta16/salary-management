@@ -1,0 +1,25 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+config/master.key
+
+# Ruby / Rails
+**/vendor/bundle/
+**/tmp/
+**/log/*
+**/storage/*
+**/coverage/
+**/.bundle/
+**/public/assets/
+
+# Node / React
+**/node_modules/
+**/dist/
+**/coverage/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+*.swp
