@@ -183,13 +183,55 @@ Employee codes and email addresses are unique. Salary records reference employee
 
 Detailed scope and requirements are documented in [`docs/requirements.md`](docs/requirements.md).
 
+
 ## Testing
 
-The backend test suite includes model validation and API request coverage for employee listing, filtering, pagination, and analytics.
+The project includes automated backend and frontend tests.
 
-The frontend has ESLint checks and a production build check.
+### Backend tests
 
-Run all checks using the commands in the Local Setup section. Add new tests when changing API behavior or data validation.
+The RSpec suite covers model validations and API request behavior, including employee listing, filtering, pagination, and analytics.
+
+Run the backend tests:
+
+```bash
+cd backend
+bundle exec rspec
+```
+
+Latest verification: 14 examples, 0 failures.
+
+### Frontend tests
+
+Vitest and React Testing Library cover dashboard rendering, employee details, salary display, search, country filtering, department filtering, employment status filtering, and analytics navigation.
+
+Run the frontend tests:
+
+```bash
+cd frontend
+npm run test:run
+```
+
+Latest verification: 7 tests passed.
+
+### Code quality and production build
+
+Run ESLint:
+
+```bash
+cd frontend
+npm run lint
+```
+
+Build the frontend for production:
+
+```bash
+npm run build
+```
+
+Both checks have completed successfully in the local development environment.
+
+Run the backend tests, frontend tests, lint, and production build after making relevant changes.
 
 ## AI-Assisted Development
 
@@ -199,7 +241,6 @@ The implementation decisions, scope exclusions, and final code remain the candid
 
 ## Limitations and Future Improvements
 
-- Add frontend component and interaction tests.
 - Add API request validation and consistent error responses for invalid filter values.
 - Add employee create/update forms if required by the final product scope.
 - Add production deployment configuration, monitoring, and environment-specific database configuration.
