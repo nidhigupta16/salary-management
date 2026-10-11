@@ -26,32 +26,37 @@ module Api
         }
       end
 
+      def employee_breakdown
+        by_country = Employee
+          .group(:country)
+          .count
+          .sort
+          .map do |country, count|
+            { country: country, employee_count: count }
+          end
 
-		def employee_breakdown
-			by_country = Employee
-				.group(:country)
-				.count
-				.sort
-				.map do |country, count|
-					{ country: country, employee_count: count }
-				end
+        by_department = Employee
+          .group(:department)
+          .count
+          .sort
+          .map do |department, count|
+            { department: department, employee_count: count }
+          end
 
-			by_department = Employee
-				.group(:department)
-				.count
-				.sort
-				.map do |department, count|
-					{ department: department, employee_count: count }
-				end
+        status_counts = Employee
+          .group(:employment_status)
+          .count
 
-			render json: {
-				by_country: by_country,
-				by_department: by_department
-			}
-		end
-
-
-
+        render json: {
+          by_country: by_country,
+          by_department: by_department,
+          status_counts: {
+            active: status_counts.fetch("active", 0),
+            inactive: status_counts.fetch("inactive", 0),
+            on_leave: status_counts.fetch("on_leave", 0)
+          }
+        }
+      end
     end
   end
 end
