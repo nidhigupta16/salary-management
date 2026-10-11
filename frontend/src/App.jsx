@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+
 const PAGE_SIZE = 10
 
 const formatNumber = (value) =>
@@ -63,7 +65,7 @@ function App() {
         if (status) params.set('status', status)
 
         const response = await fetch(
-          `/api/v1/employees?${params.toString()}`,
+          `${API_BASE_URL}/api/v1/employees?${params.toString()}`,
           { signal: controller.signal },
         )
 
@@ -99,10 +101,10 @@ function App() {
 
       try {
         const [salaryResponse, breakdownResponse] = await Promise.all([
-          fetch('/api/v1/analytics/salary_summary', {
+          fetch(`${API_BASE_URL}/api/v1/analytics/salary_summary`, {
             signal: controller.signal,
           }),
-          fetch('/api/v1/analytics/employee_breakdown', {
+          fetch(`${API_BASE_URL}/api/v1/analytics/employee_breakdown`, {
             signal: controller.signal,
           }),
         ])
