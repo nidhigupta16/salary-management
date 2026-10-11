@@ -54,7 +54,7 @@ The project was developed with Ruby 3.2.2, Rails 7.2.x, Node.js 18.20.8, npm 10.
 ### 1. Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/nidhigupta16/salary-management.git
 cd salary-management
 ```
 
@@ -243,12 +243,14 @@ The implementation decisions, scope exclusions, and final code remain the candid
 
 - Add API request validation and consistent error responses for invalid filter values.
 - Add employee create/update forms if required by the final product scope.
-- Add production deployment configuration, monitoring, and environment-specific database configuration.
+- Improve production monitoring, logging, and operational visibility.
 - Add salary history only if future requirements need historical compensation analysis.
 
 ## Project Status
 
-Local employee and analytics workflows have been implemented and verified. Public deployment and a demo recording should be linked here once available.
+The application is deployed and the employee directory, API, and analytics workflows have been verified.
 
-- Live application: Not deployed yet
+- Live application: https://salary-management-mu.vercel.app/
+- Backend API: https://salary-management-api-hnei.onrender.com
+- GitHub repository: https://github.com/nidhigupta16/salary-management
 - Demo video: Not recorded yet
